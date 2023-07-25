@@ -25,18 +25,6 @@ def check_bound(obj: pg.Rect) -> tuple[bool, bool]:
     return yoko, tate
 
 
-def calc_orientation(org: pg.Rect, dst: pg.Rect) -> tuple[float, float]:
-    """
-    orgから見て，dstがどこにあるかを計算し，方向ベクトルをタプルで返す
-    引数1 org：爆弾SurfaceのRect
-    引数2 dst：猫SurfaceのRect
-    戻り値：orgから見たdstの方向ベクトルを表すタプル
-    """
-    x_diff, y_diff = dst.centerx-org.centerx, dst.centery-org.centery
-    norm = math.sqrt(x_diff**2+y_diff**2)
-    return x_diff/norm, y_diff/norm
-
-
 class Bird(pg.sprite.Sprite):
     """
     ゲームキャラクター（猫）に関するクラス
@@ -324,7 +312,7 @@ class Life_gauge: #体力ゲージに関するクラス
 
 
 def main():
-    pg.display.set_caption("倒せ！猫！")
+    pg.display.set_caption("倒せ！こうかとん！")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     bg_img = pg.image.load("ex05/fig/pg_bg.jpg")
     life_gauge = Life_gauge()
